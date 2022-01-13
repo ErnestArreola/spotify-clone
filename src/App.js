@@ -59,6 +59,31 @@ function App() {
           playlists,
         });
       });
+
+      s.getFeaturedPlaylists({limit : 3, offset: 1, country: 'US' })
+      .then(function(data) {
+        console.log(data);
+        console.log("Above")
+      }, function(err) {
+        console.log("Something went wrong!", err);
+      });
+
+      s.getMyCurrentPlayingTrack().then((data) => {
+        console.log(data);
+        console.log("Above data");
+      })
+
+      s.getMyCurrentPlayingTrack().then(function(data) {
+        if(data && data.is_playing) {
+          console.log("Something is playing")
+        } else {
+          console.log("User is not playing anything, or doing so in private.");
+          console.log(data);
+        }
+        }, function(err) {
+          console.log('Something went wrong!', err);
+      });
+
     }
   }, [token, dispatch]);
 

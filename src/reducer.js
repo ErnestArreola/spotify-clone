@@ -8,6 +8,8 @@ export const initialState = {
   top_artists: null,
   playing: false,
   item: null,
+  featuredPlaylist: null,
+  currentPlayingSong: null,
 };
 
 const reducer = (state, action) => {
@@ -17,7 +19,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
-      };
+      
+    }
 
     case "SET_PLAYING":
       return {
@@ -60,8 +63,15 @@ const reducer = (state, action) => {
         ...state,
         playlists: action.playlists,
       };
-    default:
-      return state;
+
+      case "SET_CURRENT_SONG_PLAYING":
+        return {
+          ...state,
+          currentPlayingSong: action.current_playing,
+        };
+      default:
+        return state;
+  
   }
 };
 

@@ -123,7 +123,8 @@ function Footer({ spotify }) {
             <VolumeDownIcon />
           </Grid>
           <Grid item xs>
-            <Slider aria-labelledby="continuous-slider" />
+            <Slider 
+            defaultValue = {50} aria-labelledby="continuous-slider" />
           </Grid>
         </Grid>
       </div>
